@@ -120,7 +120,7 @@ func (b *box) SumArea() float64 {
 	var sumA float64
 	//panic("implement me")
 	for _, valS := range b.shapes {
-		fmt.Printf("Area: %f, Type of shape: %T", valS.CalcArea(), valS)
+		fmt.Printf("Area: %f, Type of shape: %T \n", valS.CalcArea(), valS)
 		sumA = sumA + valS.CalcArea()
 	}
 	return sumA
