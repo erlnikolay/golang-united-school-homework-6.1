@@ -2,6 +2,7 @@ package golang_united_school_homework
 
 import (
 	"errors"
+	"fmt"
 )
 
 var (
@@ -119,6 +120,7 @@ func (b *box) SumArea() float64 {
 	var sumA float64
 	//panic("implement me")
 	for _, valS := range b.shapes {
+		fmt.Printf("Area: %v, Type of shape: %v", string(valS.CalcArea()), string(valS.(types)))
 		sumA = sumA + valS.CalcArea()
 	}
 	return sumA
