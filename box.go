@@ -140,5 +140,6 @@ func (b *box) RemoveAllCircles() error {
 		return ErrCirclesDoesntExist
 	} else {
 		b.shapes = newshapes
+		return nil
 	}
 }
