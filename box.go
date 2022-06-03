@@ -28,7 +28,7 @@ func (b *box) AddShape(shape Shape) error {
 	var err error
 
 	//panic("implement me")
-	b.shapes, err = append(b.shapes, shape)
+	b.shapes = append(b.shapes, shape)
 	if err != nil {
 		return err
 	}
@@ -104,7 +104,7 @@ func (b *box) ReplaceByIndex(i int, shape Shape) (Shape, error) {
 func (b *box) SumPerimeter() float64 {
 	var sumP float64
 	//panic("implement me")
-	for idxS, valS := range b.shapes {
+	for _, valS := range b.shapes {
 		sumP = sumP + valS.CalcPerimeter()
 	}
 	return sumP
