@@ -73,7 +73,7 @@ func (b *box) ExtractByIndex(i int) (Shape, error) {
 			newshapes = append(newshapes, valS)
 		}
 	}
-	if triggerOfNotExisttenElement == true {
+	if triggerOfNotExisttenElement {
 		b.shapes = newshapes
 		return valueOfFoundElement, nil
 	} else {
@@ -114,7 +114,7 @@ func (b *box) SumPerimeter() float64 {
 func (b *box) SumArea() float64 {
 	var sumA float64
 	//panic("implement me")
-	for idxS, valS := range b.shapes {
+	for _, valS := range b.shapes {
 		sumA = sumA + valS.CalcArea()
 	}
 	return sumA
