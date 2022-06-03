@@ -7,6 +7,7 @@ import (
 var (
 	ErrIndexDoesntExist   = errors.New("Index of element doesn't exist")
 	ErrCirclesDoesntExist = errors.New("Circles doesn't exist")
+	ErrMaxOfQuantity      = errors.New("Maximum quantity of shapes reached")
 )
 
 // box contains list of shapes and able to perform operations on them
@@ -26,11 +27,14 @@ func NewBox(shapesCapacity int) *box {
 // returns the error in case it goes out of the shapesCapacity range.
 func (b *box) AddShape(shape Shape) error {
 	var err error
-
 	//panic("implement me")
-	b.shapes = append(b.shapes, shape)
-	if err != nil {
-		return err
+	if len(b.shapes) < b.shapesCapacity {
+		b.shapes = append(b.shapes, shape)
+		if err != nil {
+			return err
+		}
+	} else {
+		return ErrMaxOfQuantity
 	}
 	return nil
 }
