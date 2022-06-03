@@ -127,10 +127,11 @@ func (b *box) RemoveAllCircles() error {
 	var newshapes []Shape
 	//panic("implement me")
 	triggerCircleIsNotExist = false
-	for idxS, valS := range b.shapes {
-		if valS.(type) == Circle {
+	for _, valS := range b.shapes {
+		switch valS.(type) {
+		case *Circle:
 			triggerCircleIsNotExist = true
-		} else {
+		default:
 			newshapes = append(newshapes, valS)
 		}
 	}
