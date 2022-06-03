@@ -1,5 +1,7 @@
 package golang_united_school_homework
 
+import "math"
+
 // Triangle must satisfy to Shape interface
 type Triangle struct {
 	Side float64
@@ -12,5 +14,6 @@ func (t *Triangle) CalcPerimeter() float64 {
 
 // Method CalcArea
 func (t *Triangle) CalcArea() float64 {
-	return (2 * t.Side) / 2
+	//return (2 * t.Side) / 2
+	return (math.Sqrt(3) / 4) * math.Pow(t.Side, 2)
 }
